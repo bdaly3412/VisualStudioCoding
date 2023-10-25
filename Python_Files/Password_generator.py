@@ -16,11 +16,3 @@ with open(file_path, 'w') as file:
     file.write("-" + output)
 
 print("Token written to file")
-
-
-
-my_dictionary = {
-    "name": "Aryas",
-    "age": 16
-}
-print(my_dictionary["name"])
