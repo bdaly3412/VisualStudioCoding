@@ -1,3 +1,35 @@
+import customtkinter as ctk
+
+#---------CUSTOMTKINTERSTUFF---------#
+# Create a CustomTkinter window
+root = ctk.CTk()
+root.geometry("1920x1080")  # Set the size of the custom tkinter window
+root.title("To-Do List app")
+
+# Define the main frame
+main_frame = ctk.CTkFrame(master=root, width=500, height=1000)
+main_frame.pack(pady=10, padx=10)
+
+# Create an entry box inside the main frame
+entry_box = ctk.CTkEntry(master=root, width=500)
+entry_box.pack()
+
+# Function to add a task
+def adding_task():
+    entry_box_text = entry_box.get()
+    label = ctk.CTkLabel(master=main_frame, text=entry_box_text)
+    label.pack(row=0, column=0, padx=20)
+
+# Create a button to add tasks
+add_task_button = ctk.CTkButton(master=root, text="Add Task", command=adding_task, width=500)
+add_task_button.pack()
+
+
+
+#---------CUSTOMTKINTERSTUFF---------#
+
+
+
 # To-Do List Application
 
 # Function to add a task to the list
@@ -61,3 +93,6 @@ if __name__ == "__main__":
             break  # Exit the loop and the program
         else:
             print("Invalid choice. Please select a valid option.")  # Handle invalid choices
+
+
+root.mainloop()
