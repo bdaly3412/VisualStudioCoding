@@ -2,14 +2,13 @@ import random
 import json
 import pickle
 import numpy as np
-import keras
 import tensorflow as tf
-
 
 import nltk
 from nltk.stem import WordNetLemmatizer
 
 lemmatizer = WordNetLemmatizer()
+
 intents = json.loads(open('intents.json').read())
 
 words = []
@@ -24,6 +23,7 @@ for intent in intents['intents']:
         documents.append((wordList, intent['tag']))
         if intent['tag'] not in classes:
             classes.append(intent['tag'])
+
 words = [lemmatizer.lemmatize(word) for word in words if word not in ignoreLetters]
 words = sorted(set(words))
 
@@ -65,3 +65,4 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 model.fit(trainX, trainY, epochs=200, batch_size=5, verbose=1)
 model.save('chatbot_model.h5')
 print('Done')
+
